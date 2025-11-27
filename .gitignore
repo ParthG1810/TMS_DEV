@@ -1,0 +1,74 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+express-backend/.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Build
+dist/
+build/
+out/
+.next/
+
+# Testing
+.cache/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Database
+*.sql.backup
+*.db
+
+# Express backend specific
+express-backend/node_modules/
+express-backend/package-lock.json
+express-backend/.env
+
+# Next.js backend specific
+backend/node_modules/
+backend/.next/
+backend/out/
+backend/build/
+backend/package-lock.json
+nul
