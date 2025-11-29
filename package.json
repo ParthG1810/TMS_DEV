@@ -1,0 +1,65 @@
+{
+  "name": "tms-desktop",
+  "version": "1.0.0",
+  "description": "TMS Desktop Application - Electron + React",
+  "main": "electron/main.js",
+  "author": "TMS Team",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:vite\" \"npm run dev:electron\"",
+    "dev:backend": "cd backend-server && npm run dev",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on http://localhost:5173 && cross-env NODE_ENV=development electron .",
+    "build": "npm run build:vite && npm run build:electron",
+    "build:vite": "vite build",
+    "build:electron": "electron-builder",
+    "build:backend": "cd backend-server && npm run build",
+    "start": "electron .",
+    "postinstall": "cd backend-server && npm install && cd ../client && npm install",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^8.0.1",
+    "cross-env": "^7.0.3",
+    "electron": "^25.0.0",
+    "electron-builder": "^24.4.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.3.0",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.tms.desktop",
+    "productName": "TMS Desktop",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/**/*",
+      "backend-server/**/*",
+      "!backend-server/node_modules",
+      "package.json"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": ["dmg"],
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "icon": "build/icon.png"
+    }
+  }
+}
